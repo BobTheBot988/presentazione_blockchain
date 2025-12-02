@@ -5,10 +5,12 @@
 #import "@preview/fletcher:0.5.8" as fletcher: edge, node
 #import "@preview/numbly:0.1.0": numbly
 #import "@preview/theorion:0.4.0": *
-#let faculty = "Facoltà di Ingegneria dell’Informazione, Informatica e Statistica
+#let faculty = "Facoltà di Ingegneria dell'Informazione, Informatica e Statistica
 Laurea Triennale in Informatica"
-#let title = "TODO"
-#let short_title = "TODO"
+#let title = "Design and Implementation of a
+Token-NFT-Liquidity Smart Contract Suite"
+#let short_title = "Design and Implementation of a
+Token-NFT-Liquidity Smart Contract Suite"
 #let authors = [ Roberto Di Rosa,Luca Sforza ]
 #let institution = "Sapienza"
 // Define the theme configuration as a variable
@@ -26,12 +28,17 @@ Laurea Triennale in Informatica"
   aspect-ratio: "16-9",
   config-info(
     title: title,
-    // short-title: short_title,
-    subtitle: [Subtitle],
+    short-title: short_title,
     authors: authors,
-    date: datetime.today(),
+    date: "3-12-2025",// datetime.today(),
     institution: institution,
     logo: emoji.school,
+  ),
+  config-methods(
+    init: (self: none, body) => {
+      set text(size: 23pt)
+      body
+    }
   ),
   // 1. Configure the page margin to make room for a taller footer
   config-page(
