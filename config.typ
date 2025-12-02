@@ -30,19 +30,19 @@ Token-NFT-Liquidity Smart Contract Suite"
     title: title,
     short-title: short_title,
     authors: authors,
-    date: "3-12-2025",// datetime.today(),
+    date: "3-12-2025", // datetime.today(),
     institution: institution,
-    logo: emoji.school,
+    logo: image("assets/logo_RGB_negative.png", fit: "contain", width: auto),
   ),
   config-methods(
     init: (self: none, body) => {
       set text(size: 23pt)
       body
-    }
+    },
   ),
   // 1. Configure the page margin to make room for a taller footer
   config-page(
-    margin: (bottom: 5em), // Increase this value (default is often ~2em)
+    margin: (bottom: 3em), // Increase this value (default is often ~2em)
     footer-descent: 1.5em, // Adjust this to move the footer up/down within that margin
   ),
   config-colors(primary: rgb(130, 36, 51), neutral-dark: rgb("#000"), neutral-light: rgb("#fff")),
