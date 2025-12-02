@@ -55,21 +55,60 @@ function is executed (which can be overridden).
 ```
 
 So Solidity exploit this behavior to defines interfaces. So ERC-20 can be viewed as an Interface.
+
+
 #focus-slide("Design of the standard ERC-20")
 #figure(
   image("assets/token.png", width: auto)
 )
 
 #speaker-note[
+  #text(
+    size: 15pt
+  )[
   + A Model Driven Architecture approach provides a structured method for designing blockchain smart contracts. Using UML diagrams—such as Class and State Machine diagrams—developers can model both the structure and behavioral logic of smart contracts across multiple abstraction layers, improving clarity, analysis, and maintainability.
-  + In this UML we have the ERC20 seen as an Interface and SapiCoin is a Class that implementes the methods.
-  + ]
+  + In this UML we have the ERC20 seen as an Interface and SapiCoin is a Class that implementes the methods. The methods are:
+    + balanceOf: returns the balance locked in a address
+    + transfer: transfer token to another address
+    + approve: Approve a Spender to spend our money
+    + allowance: returns the amount of token that a spender can spend
+    + transferFrom: trasfer token from an address to another if we are approved to do so.
+  + The entire approval mechanism is very useful from a
+programming perspective.
+Users can call approve on a given smart contract for a
+specified amount of tokens.
+In this way, a smart contract can use our tokens to provide
+a service.]
+  
+]
 
 
 // 1. UML
 // 2. metodi da implementare e perché il sistema di approval è comodo
-// 3. eventi
-// 4. Vanità
+
+== Events
+
+#speaker-note[
+  + ERC-20 also defines a set of events that a token *should* emit whenever the contract's internal state changes, so that the operations executed within a smart contract can be tracked and displayed by front-end applications such as Etherscan.
+  + We can also set optional vanities to the Token, such as the name of the token, the token symbol and the number of decimal.
+  + To implement a specific token, in our case SapiCoin, there is no additional logic beyond being a token. If we wanted to implement a stablecoin or a wrapped coin, we would need to add methods to manage the exchange of the token with the real-world currency it represents
+]
+
+#matrix-slide[
+  #image("assets/token.png", width: auto)
+][
+  #grid(align:center+horizon,columns: auto,rows: (50%,50%)
+  )[
+    #image("assets/events.png")
+  ][
+    #text(size: 15pt)[
+      ```Solidity
+  event Transfer(address indexed _from, address indexed _to, uint256 _value);
+  event Approval(address indexed _owner, address indexed _spender, uint256 _value);
+```
+    ]
+  ]
+]
 
 
 
