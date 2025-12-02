@@ -66,9 +66,9 @@ So Solidity exploit this behavior to defines interfaces. So ERC-20 can be viewed
   #text(
     size: 15pt
   )[
-  + A Model Driven Architecture approach provides a structured method for designing blockchain smart contracts. Using UML diagrams—such as Class and State Machine diagrams—developers can model both the structure and behavioral logic of smart contracts across multiple abstraction layers, improving clarity, analysis, and maintainability.
-  + In this UML we have the ERC20 seen as an Interface and SapiCoin is a Class that implementes the methods. The methods are:
-    + balanceOf: returns the balance locked in a address
+  + We used a Model Driven Architecture approach, this provides a structured method for designing blockchain smart contracts. Using UML diagrams—such as Class and State Machine diagrams—developers can model both the structure and behavioral logic of smart contracts across multiple abstraction layers, improving clarity, analysis, and maintainability.
+  + In this UML class diagram we have the ERC20 seen as an Interface and SapiCoin is a Class that implementes the methods. The methods are:
+    + balanceOf: returns the balance locked, in an address
     + transfer: transfer token to another address
     + approve: Approve a Spender to spend our money
     + allowance: returns the amount of token that a spender can spend
@@ -110,35 +110,55 @@ a service.]
   ]
 ]
 
+#focus-slide("Design of the standard ERC-721")
 
+== ERC-721
 
-== Token ERC-721
-#lorem(10)
-=== ERC-165
-#lorem(30)
+#speaker-note[
+  The ERC-721 interface defines the standard for NFTs. Each token is unique and distinct, unlike ERC-20 tokens which are
+  fungible (all identical). To contrain this non fungibility every Token must  have a unique id.
+
+  Each NFT can have vanities by implementing the ERC-721-metadata which contains: 
+   + name(): that gives us the name of the collection in which the NFT is contained.
+   + symbol(): This will give us the symbol of the collection. 
+   + tokenUri(uint tokenAdr): This will give us the URI so that we can display the NTF.
+
+]
+
+#figure(
+  image("assets/nft.png")
+)
+
+== Token Image
+
+#figure(
+  image("assets/image_nft.png")
+)
+
+#speaker-note[
+  The NFT that we minted is associated to this image through the ERC-721-metadata
+]
+== ERC-165
+
+The ERC-721 document imposes the  implementation of the ERC-165 interface, so that any ERC-721 smart contract can
+ be *queried* to see which interfaces are implemented by the smart contract.
+\ Let us say that we wanted to display an NFT in our website which we did not implement.
+Therefore we do not know if the Token implements the tokenUri method, in this case we can just ask him with the *supportsInterface(ERC-721-metadata:uint):bool*.\
+This is not a guarantee since malicious contracts can lie and tell you they implement  an interface while not actually implementing it, but ERC-165 is a way to
+ standardize the way we ask questions to other contracts.
+
+#speaker-note[
+  BTW if you are doing the project of Security in Software applications you may need to implement
+  this interface.
+]
 
 = Auction
 
-#focus-slide[
-  Another variant with primary color in background...
-]
 
-#matrix-slide[
-  left
-][
-  middle
-][
-  right
-]
+== Implementation details
 
-#matrix-slide(columns: 1)[
-  top
-][
-  bottom
-]
+prova
 
-#matrix-slide(columns: (1fr, 2fr, 1fr), ..(lorem(8),) * 9)
-#lorem(10)
 = Implementation details
 
 #lorem(10)
@@ -148,4 +168,4 @@ a service.]
 #lorem(10)
 = Conclusions
 
-#lorem(10)
+Invest money on our start-up (Not a financial Advice)
