@@ -32,7 +32,7 @@ Token-NFT-Liquidity Smart Contract Suite"
     authors: authors,
     date: "3-12-2025", // datetime.today(),
     institution: institution,
-    logo: image("assets/logo_RGB_negative.png", fit: "contain", width: auto),
+    // logo: image("assets/logo_RGB_negative.png", fit: "contain", width: auto),
   ),
   config-methods(
     init: (self: none, body) => {
@@ -76,4 +76,3 @@ Token-NFT-Liquidity Smart Contract Suite"
 #let sapienza-colors = (
   main: rgb(130, 36, 51), // The official Sapienza Red
 )
-

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0">
+<dict>
+  <key>name</key>
+  <string>SolidityCustom</string>
+
+  <key>settings</key>
+  <array>
+
+    <!-- Default -->
+    <dict>
+      <key>settings</key>
+      <dict>
+        <key>background</key><string>#1e1e1e</string>
+        <key>foreground</key><string>#e0e0e0</string>
+      </dict>
+    </dict>
+
+    <!-- Keyword color -->
+    <dict>
+      <key>scope</key>
+      <string>keyword.control.solidity</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key><string>#0000FF</string> <!-- metti il colore che vuoi -->
+      </dict>
+    </dict>
+
+    <!-- Tipi -->
+    <dict>
+      <key>scope</key>
+      <string>storage.type.solidity</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key><string>#56b6c2</string>
+      </dict>
+    </dict>
+
+  </array>
+</dict>
+</plist>

@@ -1,0 +1,65 @@
+%YAML 1.2
+---
+name: Solidity
+scope: source.solidity
+file_extensions:
+  - sol
+
+contexts:
+  main:
+    - include: comments
+    - include: strings
+    - include: numbers
+    - include: keywords
+    - include: types
+    - include: pragmas
+
+    # Identificatori (nomi di funzioni/variabili)
+    - match: '\b[a-zA-Z_]\w*\b'
+      scope: variable.other.solidity
+
+  comments:
+    - match: '//.*$'
+      scope: comment.line.double-slash.solidity
+
+    - match: '/\*'
+      scope: comment.block.solidity
+      push:
+        - meta_scope: comment.block.solidity
+        - match: '\*/'
+          pop: true
+
+  strings:
+    - match: '"'
+      scope: string.quoted.double.solidity
+      push:
+        - meta_scope: string.quoted.double.solidity
+        - match: '"'
+          pop: true
+
+    - match: "'"
+      scope: string.quoted.single.solidity
+      push:
+        - meta_scope: string.quoted.single.solidity
+        - match: "'"
+          pop: true
+
+  numbers:
+    - match: '\b[0-9]+(\.[0-9]+)?\b'
+      scope: constant.numeric.solidity
+
+  pragmas:
+    - match: '\bpragma\b'
+      scope: keyword.control.solidity
+      push:
+        - meta_scope: meta.pragma.solidity
+        - match: ';'
+          pop: true
+
+  keywords:
+    - match: \b(contract|interface|library|function|returns|event|modifier|public|private|internal|external|pure|view|payable|memory|storage|calldata|if|else|for|while|do|return|emit|mapping|using|try|catch|assembly|unchecked|new|delete|is)\b
+      scope: keyword.control.solidity
+
+  types:
+    - match: \b(bool|address|address payable|uint|uint8|uint16|uint32|uint64|uint128|uint256|int|int8|int16|int32|int64|int128|int256|bytes|bytes1|bytes2|bytes4|bytes8|bytes16|bytes32|string)\b
+      scope: storage.type.solidity
