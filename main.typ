@@ -56,9 +56,15 @@ function is executed (which can be overridden).
 
 So Solidity exploit this behavior to defines interfaces. So ERC-20 can be viewed as an Interface.
 #focus-slide("Design of the standard ERC-20")
-#image("assets/token.png", width: auto)
+#figure(
+  image("assets/token.png", width: auto)
+)
 
-#speaker-note[A Model Driven Architecture approach provides a structured method for designing blockchain smart contracts. Using UML diagrams—such as Class and State Machine diagrams—developers can model both the structure and behavioral logic of smart contracts across multiple abstraction layers, improving clarity, analysis, and maintainability.]
+#speaker-note[
+  + A Model Driven Architecture approach provides a structured method for designing blockchain smart contracts. Using UML diagrams—such as Class and State Machine diagrams—developers can model both the structure and behavioral logic of smart contracts across multiple abstraction layers, improving clarity, analysis, and maintainability.
+  + In this UML we have the ERC20 seen as an Interface and SapiCoin is a Class that implementes the methods.
+  + ]
+
 
 // 1. UML
 // 2. metodi da implementare e perché il sistema di approval è comodo

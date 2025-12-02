@@ -45,6 +45,7 @@ Token-NFT-Liquidity Smart Contract Suite"
     margin: (bottom: 3em), // Increase this value (default is often ~2em)
     footer-descent: 1.5em, // Adjust this to move the footer up/down within that margin
   ),
+  config-common(show-notes-on-second-screen: right),
   config-colors(primary: rgb(130, 36, 51), neutral-dark: rgb("#000"), neutral-light: rgb("#fff")),
   // footer-columns: (25%, 2fr, 25%),
 )
