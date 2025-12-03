@@ -245,6 +245,21 @@ It consists of three main utilities:
 ]
 
 == How to deploy a smart contract
+
+You can download the repo here: https://github.com/LucaSforza/token
+
+The full tutorial is here: 
+
+https://github.com/LucaSforza/token/blob/main/HOMEWORK.md
+
+Please put a star :)
+
+#speaker-note[
+  This is the Homework that you will do. You have just di download our public repo
+]
+
+#pagebreak()
+
 #h(10fr)
 
 ```bash
