@@ -2,7 +2,7 @@
 #show: project-theme
 // Title Slide
 #set heading(numbering: numbly("{1}.", default: "1.1"))
-#title-slide(logo: image("Uniroma1.svg"))
+#title-slide()
 
 // Standard Slide
 = Introduction
@@ -46,13 +46,18 @@ If the invoked method does not exist, a default fallback
 function is executed (which can be overridden).
 
 #set raw(syntaxes: "assets/solidity.sublime-syntax")
-#set raw(theme: "assets/solidity.tmTheme")   
+#set raw(theme: "assets/solidity.tmTheme") 
 
 ```Solidity
   contract SapiCoin is ERC20 {
     /* Implementation */
   }
 ```
+
+#speaker-note[
+  Here we can see a code snippet which shows
+  how to inherit the methods of an interface in Solidity.
+]
 
 So Solidity exploit this behavior to defines interfaces. So ERC-20 can be viewed as an Interface.
 
@@ -70,7 +75,7 @@ So Solidity exploit this behavior to defines interfaces. So ERC-20 can be viewed
   + In this UML class diagram we have the ERC20 seen as an Interface and SapiCoin is a Class that implementes the methods. The methods are:
     + balanceOf: returns the balance locked, in an address
     + transfer: transfer token to another address
-    + approve: Approve a Spender to spend our money
+    + approve: Approve fuction is need to allow a Spender, which is an address, to spend our money
     + allowance: returns the amount of token that a spender can spend
     + transferFrom: trasfer token from an address to another if we are approved to do so.
   + The entire approval mechanism is very useful from a
@@ -115,13 +120,16 @@ a service.]
 == ERC-721
 
 #speaker-note[
+
+  Now let's talk abouts NFTs defined by the ERC-721 standard.
+
   The ERC-721 interface defines the standard for NFTs. Each token is unique and distinct, unlike ERC-20 tokens which are
   fungible (all identical). To contrain this non fungibility every Token must  have a unique id.
 
-  Each NFT can have vanities by implementing the ERC-721-metadata which contains: 
+  Each NFT can have vanities by implementing the ERC-721-metadata interface which contains: 
    + name(): that gives us the name of the collection in which the NFT is contained.
    + symbol(): This will give us the symbol of the collection. 
-   + tokenUri(uint tokenAdr): This will give us the URI so that we can display the NTF.
+   + tokenUri(uint tokenAdr): This will give us the URI so that we can display the NTF in a front-end application.
 
 ]
 
@@ -151,6 +159,7 @@ matches the XOR of the function selectors that define the
 interface.
 
 #speaker-note[
+  + According to the standard the supportsInterface function must return true iff the provided interfaceID matches the XOR of all of the interface's methods' hash signature.
   + This is not a guarantee since malicious contracts can lie and tell you they implement  an interface while not actually implementing it, but ERC-165 is a way to standardize the way we ask questions to other contracts.
   + If you are doing the project of Security in Software applications you may need to implement this interface.
 ]
