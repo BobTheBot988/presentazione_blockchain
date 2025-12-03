@@ -250,12 +250,14 @@ You can download the repo here: https://github.com/LucaSforza/token
 
 The full tutorial is here: 
 
-https://github.com/LucaSforza/token/blob/main/HOMEWORK.md
+#figure(
+  image("assets/tutorial.jpeg", width: 30%)
+)
 
 Please put a star :)
 
 #speaker-note[
-  This is the Homework that you will do. You have just di download our public repo
+  This is the Homework that you will do. You have just di download our public repo and follow the tutorial.
 ]
 
 #pagebreak()
